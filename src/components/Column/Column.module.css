@@ -1,0 +1,22 @@
+.column {
+  padding: 20px;
+  border-radius: 20px;
+  border: #fff 1px solid;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.columnTitle {
+  color: #fff;
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #fff;
+}
+
+.columnContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
