@@ -1,0 +1,16 @@
+body {
+  background: #242424;
+  font-family: sans-serif;
+}
+
+#root {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding: 20px;
+}
+
+.kanban {
+  display: flex;
+  gap: 25px;
+}
