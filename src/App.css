@@ -1,6 +1,6 @@
 body {
-  background: #242424;
-  font-family: sans-serif;
+  font-family: var(--font-family1);
+  background: var(--background-color);
 }
 
 #root {
@@ -11,6 +11,14 @@ body {
 }
 
 .kanban {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 300px;
   gap: 25px;
+  min-height: calc(100vh - 50px); /* 50px - space for scrollbar */
+  padding-bottom: 20px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: start;
 }
