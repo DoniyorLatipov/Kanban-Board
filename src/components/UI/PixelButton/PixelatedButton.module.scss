@@ -1,0 +1,155 @@
+.pixelatedButton {
+  font-size: 20px;
+  width: 100%;
+  font-family: var(--font-family1);
+  height: fit-content;
+  padding: 0;
+  background: none;
+
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+
+  transition: 0.1s all ease-in-out;
+  cursor: pointer;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &--light {
+    color: var(--invert-secondary-color);
+  }
+
+  &--dark {
+    color: var(--secondary-color);
+  }
+
+  &--primary {
+    color: var(--invert-secondary-color);
+  }
+
+  &:active {
+    transform: scale(1.03);
+  }
+
+  //PIXELATED ANGLES START
+  line-height: 0;
+
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+
+  border-style: solid;
+  border-width: 20px;
+
+  &--light {
+    -moz-border-image: url('../../../assets/background/pixelated-button-background-light.png') 20
+      stretch;
+    -webkit-border-image: url('../../../assets/background/pixelated-button-background-light.png') 20
+      stretch;
+    -o-border-image: url('../../../assets/background/pixelated-button-background-light.png') 20
+      stretch;
+    border-image: url('../../../assets/background/pixelated-button-background-light.png') 20 stretch;
+  }
+
+  &--dark {
+    -moz-border-image: url('../../../assets/background/pixelated-button-background-dark.png') 20
+      stretch;
+    -webkit-border-image: url('../../../assets/background/pixelated-button-background-dark.png') 20
+      stretch;
+    -o-border-image: url('../../../assets/background/pixelated-button-background-dark.png') 20
+      stretch;
+    border-image: url('../../../assets/background/pixelated-button-background-dark.png') 20 stretch;
+  }
+
+  &--primary {
+    -moz-border-image: url('../../../assets/background/pixelated-button-background-primary.png') 20
+      stretch;
+    -webkit-border-image: url('../../../assets/background/pixelated-button-background-primary.png')
+      20 stretch;
+    -o-border-image: url('../../../assets/background/pixelated-button-background-primary.png') 20
+      stretch;
+    border-image: url('../../../assets/background/pixelated-button-background-primary.png') 20
+      stretch;
+  }
+
+  //PIXELATED ANGLES END
+
+  //PIXELATED CONTENT START
+  & p {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: fit-content;
+    text-align: center;
+    margin: -20px -20px;
+    line-height: 20px;
+    padding: 10px 20px;
+    width: calc(100% + 40px);
+  }
+
+  &--light p {
+    background: var(--secondary-color);
+    background: linear-gradient(135deg, transparent 10px, var(--secondary-color) 0) top left,
+      linear-gradient(225deg, transparent 10px, var(--secondary-color) 0) top right,
+      linear-gradient(315deg, transparent 10px, var(--secondary-color) 0) bottom right,
+      linear-gradient(45deg, transparent 10px, var(--secondary-color) 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(
+        circle at 0 0,
+        rgba(204, 0, 0, 0) 14px,
+        var(--secondary-color) 15px
+      ),
+      radial-gradient(circle at 100% 0, rgba(204, 0, 0, 0) 14px, var(--secondary-color) 15px),
+      radial-gradient(circle at 100% 100%, rgba(204, 0, 0, 0) 14px, var(--secondary-color) 15px),
+      radial-gradient(circle at 0 100%, rgba(204, 0, 0, 0) 14px, var(--secondary-color) 15px);
+  }
+
+  &--dark p {
+    background: var(--invert-secondary-color);
+    background: linear-gradient(135deg, transparent 10px, var(--invert-secondary-color) 0) top left,
+      linear-gradient(225deg, transparent 10px, var(--invert-secondary-color) 0) top right,
+      linear-gradient(315deg, transparent 10px, var(--invert-secondary-color) 0) bottom right,
+      linear-gradient(45deg, transparent 10px, var(--invert-secondary-color) 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(
+        circle at 0 0,
+        rgba(204, 0, 0, 0) 14px,
+        var(--invert-secondary-color) 15px
+      ),
+      radial-gradient(circle at 100% 0, rgba(204, 0, 0, 0) 14px, var(--invert-secondary-color) 15px),
+      radial-gradient(
+        circle at 100% 100%,
+        rgba(204, 0, 0, 0) 14px,
+        var(--invert-secondary-color) 15px
+      ),
+      radial-gradient(circle at 0 100%, rgba(204, 0, 0, 0) 14px, var(--invert-secondary-color) 15px);
+  }
+
+  &--primary p {
+    background: var(--primary-color);
+    background: linear-gradient(135deg, transparent 10px, var(--primary-color) 0) top left,
+      linear-gradient(225deg, transparent 10px, var(--primary-color) 0) top right,
+      linear-gradient(315deg, transparent 10px, var(--primary-color) 0) bottom right,
+      linear-gradient(45deg, transparent 10px, var(--primary-color) 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(
+        circle at 0 0,
+        rgba(204, 0, 0, 0) 14px,
+        var(--primary-color) 15px
+      ),
+      radial-gradient(circle at 100% 0, rgba(204, 0, 0, 0) 14px, var(--primary-color) 15px),
+      radial-gradient(circle at 100% 100%, rgba(204, 0, 0, 0) 14px, var(--primary-color) 15px),
+      radial-gradient(circle at 0 100%, rgba(204, 0, 0, 0) 14px, var(--primary-color) 15px);
+  }
+}

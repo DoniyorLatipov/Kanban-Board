@@ -1,0 +1,42 @@
+.customInputContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.customInputContainerWithRightComponent .customInput {
+  border-right: none;
+  width: 90%;
+}
+
+.customInput {
+  width: 100%;
+  color: var(--secondary-color);
+  font-family: var(--font-family2);
+  font-size: 18px;
+  border: none;
+  padding: 5px 10px;
+  border: 1px solid var(--primary-color);
+  background-color: var(--background-color);
+  height: 40px;
+  border-radius: 15px;
+  background: none;
+  background: var(--background-color);
+}
+
+.customInput::placeholder {
+  color: var(--primary-color);
+}
+
+.customInput:focus-visible,
+.customInput:focus {
+  outline: none;
+  box-shadow: 0 0 10px 0 #ffca85;
+}
+
+.rightComponent {
+  height: 40px;
+  top: 0;
+  right: 0;
+  position: absolute;
+}
