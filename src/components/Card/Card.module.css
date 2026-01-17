@@ -2,11 +2,12 @@
   width: 100%;
   height: fit-content;
   padding: 20px;
-  border-radius: 10px;
-  border: #fff 1px solid;
+  font-family: var(--font-family2);
+  border-radius: 15px;
+  border: var(--primary-color) 1px solid;
 }
 
 .cardTitle {
-  color: #fff;
+  color: var(--primary-color);
   font-size: 18px;
 }
