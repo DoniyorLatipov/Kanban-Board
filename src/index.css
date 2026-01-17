@@ -106,3 +106,38 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+/* reset end */
+
+/* departure-mono-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Departure Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/DepartureMono-Regular.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url('.fonts/DepartureMono-Regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+}
+
+/* advent-pro-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Advent Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/advent-pro-v33-latin-600.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url('fonts/advent-pro-v33-latin-600.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+, iOS 5+ */
+}
+
+:root {
+  --font-family1: 'Departure Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+  --font-family2: 'Advent Pro', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --background-color: #242424;
+  --primary-color: #ffca85;
+  --secondary-color: #fff;
+  --sub-secondary-color: #919191;
+  --invert-secondary-color: #000a0c;
+}
