@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Column from './components/Column/Column';
 import Card from './components/Card/Card';
 
