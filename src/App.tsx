@@ -1,21 +1,15 @@
 import './styles/App.css';
 import Column from './components/Column/Column';
-import Card from './components/Card/Card';
+import { useAppState } from './hooks/useAppState';
 
 function App() {
+  const { state } = useAppState();
+
   return (
     <div className="kanban">
-      <Column title="To Do">
-        <Card text="Generate app scaffold" />
-      </Column>
-
-      <Column title="In progress">
-        <Card text="Learn TypeScript" />
-      </Column>
-
-      <Column title="Done">
-        <Card text="Begin to use static typing"></Card>
-      </Column>
+      {state.lists.map((list) => {
+        return <Column title={list.title} key={list.id} id={list.id} />;
+      })}
     </div>
   );
 }
