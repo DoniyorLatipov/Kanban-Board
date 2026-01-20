@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useReducer } from 'react';
 
 interface list {
   title: string;
@@ -18,25 +18,59 @@ interface AppState {
 
 interface AppStateContextProps {
   state: AppState;
+  dispatch: React.Dispatch<Action>;
 }
 
 const appData: AppState = {
-  lists: [
-    { title: 'To Do', id: 1 },
-    { title: 'In progress', id: 2 },
-    { title: 'Done', id: 3 },
-  ],
-  tasks: [
-    { text: 'Generate app scaffold', id: 1, listId: 1 },
-    { text: 'Learn TypeScript', id: 2, listId: 2 },
-    { text: 'Begin to use static typing', id: 3, listId: 3 },
-  ],
+  lists: [],
+  tasks: [],
 };
+
+interface AddListAction {
+  type: 'ADD_LIST';
+  payload: { title: string; id: string };
+}
+
+interface AddTaskAction {
+  type: 'ADD_TASK';
+  payload: { text: string; id: string; listId: string };
+}
+
+type Action = AddListAction | AddTaskAction;
+
+function AppStateReducer(state: AppState, action: Action): AppState {
+  switch (action.type) {
+    case 'ADD_LIST': {
+      const { title, id } = action.payload;
+
+      return {
+        ...state,
+        lists: [...state.lists, { title, id }],
+      };
+    }
+    case 'ADD_TASK': {
+      const { text, id, listId } = action.payload;
+
+      return {
+        ...state,
+        tasks: [...state.tasks, { text, id, listId }],
+      };
+    }
+    default: {
+      console.error('Unknown ction type for Reducer');
+      return { ...state };
+    }
+  }
+}
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
 function AppStateProvide({ children }: React.PropsWithChildren) {
-  return <AppStateContext.Provider value={{ state: appData }}>{children}</AppStateContext.Provider>;
+  const [state, dispatch] = useReducer(AppStateReducer, appData);
+
+  return (
+    <AppStateContext.Provider value={{ state, dispatch }}>{children}</AppStateContext.Provider>
+  );
 }
 
 export { AppStateContext, AppStateProvide };
