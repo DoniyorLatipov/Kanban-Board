@@ -35,7 +35,7 @@ const appData: AppState = {
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
-function AppStateProvide({ children }: React.PropsWithChildren<{}>) {
+function AppStateProvide({ children }: React.PropsWithChildren) {
   return <AppStateContext.Provider value={{ state: appData }}>{children}</AppStateContext.Provider>;
 }
 
