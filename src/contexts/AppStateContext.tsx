@@ -2,13 +2,13 @@ import React, { createContext } from 'react';
 
 interface list {
   title: string;
-  id: number;
+  id: string;
 }
 
 interface task {
   text: string;
-  id: number;
-  listId: number;
+  id: string;
+  listId: string;
 }
 
 interface AppState {
