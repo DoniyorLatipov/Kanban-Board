@@ -24,7 +24,7 @@ const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
           type="text"
           placeholder="Enter your text"
           {...rest}
-          ref={ref} // Передаем ref
+          ref={ref}
         />
         {rightComponent && <div className={classes.rightComponent}>{rightComponent}</div>}
       </div>
