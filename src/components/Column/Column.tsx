@@ -6,6 +6,8 @@ import { useAppState } from '../../hooks/useAppState';
 import { v4 as uuidv4 } from 'uuid';
 import { useDragItem } from '../../hooks/useDragItem';
 import { useDropItem } from '../../hooks/useDropItem';
+import { isHidden } from '../../utils/isHidden';
+import clsx from 'clsx';
 
 interface ColumnProps {
   title: string;
@@ -20,7 +22,13 @@ export default function Column({ title, id }: ColumnProps) {
   const { dropRef } = useDropItem({ id, type: 'COLUMN' });
 
   return (
-    <div className={classes.column} ref={(node) => void dragRef(dropRef(node))}>
+    <div
+      className={clsx(
+        classes.column,
+        isHidden(state.ui.draggedItem, 'COLUMN', id) && classes.columnHidden,
+      )}
+      ref={(node) => void dragRef(dropRef(node))}
+    >
       <div className={classes.columnHeader}>
         <h2 className={classes.columnTitle}>{title}</h2>
       </div>

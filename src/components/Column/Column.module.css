@@ -5,6 +5,12 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: 0.3s all ease-in-out;
+  position: relative;
+}
+
+.columnHidden {
+  opacity: 0.2;
 }
 
 .columnHeader {
