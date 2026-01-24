@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import swapItemsById from '../utils/swapItemsById';
+import type { DraggedItem } from './DndContext';
 
 interface list {
   title: string;
@@ -12,9 +13,14 @@ interface task {
   listId: string;
 }
 
+interface ui {
+  draggedItem: DraggedItem | null;
+}
+
 interface AppState {
   lists: list[];
   tasks: task[];
+  ui: ui;
 }
 
 interface AppStateContextProps {
@@ -25,6 +31,7 @@ interface AppStateContextProps {
 const appData: AppState = {
   lists: [],
   tasks: [],
+  ui: { draggedItem: null },
 };
 
 interface AddListAction {
@@ -42,7 +49,12 @@ interface MoveListAction {
   payload: { draggedListId: string; hoveredListId: string };
 }
 
-type Action = AddListAction | AddTaskAction | MoveListAction;
+interface SetDraggedItemAction {
+  type: 'SET_DRAGGED_ITEM';
+  payload: DraggedItem | null;
+}
+
+type Action = AddListAction | AddTaskAction | MoveListAction | SetDraggedItemAction;
 
 function AppStateReducer(state: AppState, action: Action): AppState {
   switch (action.type) {
@@ -66,6 +78,9 @@ function AppStateReducer(state: AppState, action: Action): AppState {
       const { draggedListId, hoveredListId } = action.payload;
 
       return { ...state, lists: swapItemsById(state.lists, draggedListId, hoveredListId, true) };
+    }
+    case 'SET_DRAGGED_ITEM': {
+      return { ...state, ui: { draggedItem: action.payload } };
     }
     default: {
       console.error('Unknown ction type for Reducer');
