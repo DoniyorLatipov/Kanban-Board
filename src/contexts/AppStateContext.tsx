@@ -1,4 +1,5 @@
 import React, { createContext, useReducer } from 'react';
+import swapItemsById from '../utils/swapItemsById';
 
 interface list {
   title: string;
@@ -36,7 +37,12 @@ interface AddTaskAction {
   payload: { text: string; id: string; listId: string };
 }
 
-type Action = AddListAction | AddTaskAction;
+interface MoveListAction {
+  type: 'MOVE_LIST';
+  payload: { draggedListId: string; hoveredListId: string };
+}
+
+type Action = AddListAction | AddTaskAction | MoveListAction;
 
 function AppStateReducer(state: AppState, action: Action): AppState {
   switch (action.type) {
@@ -55,6 +61,11 @@ function AppStateReducer(state: AppState, action: Action): AppState {
         ...state,
         tasks: [...state.tasks, { text, id, listId }],
       };
+    }
+    case 'MOVE_LIST': {
+      const { draggedListId, hoveredListId } = action.payload;
+
+      return { ...state, lists: swapItemsById(state.lists, draggedListId, hoveredListId, true) };
     }
     default: {
       console.error('Unknown ction type for Reducer');
